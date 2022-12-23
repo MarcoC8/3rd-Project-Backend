@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('../models/UserModel');
 
-mongoose.connect('mongodb://localhost:27017/3rd-project')
+mongoose.connect(process.env.MONGODB_URI)
 .then(x =>{
 
     console.log('connected to database name:', x.connections[0].name);

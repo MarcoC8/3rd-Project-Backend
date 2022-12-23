@@ -11,7 +11,7 @@ const app = express();
 
 const PORT = process.env.PORT;
 
-mongoose.connect('mongodb://localhost:27017/3rd-project')
+mongoose.connect(process.env.MONGODB_URI)
 .then(x =>{
  console.log('connected to database name:', x.connections[0].name);
 })
@@ -23,7 +23,7 @@ app.use(
     cors({
       credentials: true,
       origin: '*',
-      // origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    //   origin: [process.env.FRONTEND_URL]
     })
   );
 
